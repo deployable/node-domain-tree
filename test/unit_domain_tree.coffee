@@ -1,5 +1,5 @@
 
-{DomainNames,Tree} = require('../')
+{DomainNames,Tree} = require('../lib')
 
 
 describe 'Tree', ->
