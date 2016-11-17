@@ -6,6 +6,10 @@
   "directories": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deployable/node-domain-tree.git"
+  },
   "scripts": {
     "test": "mocha",
     "test:unit": "mocha test/unit-*",
@@ -27,5 +31,6 @@
   },
   "dependencies": {
     "debug": "^2.0.0"
-  }
+  },
+  "engine": "node >= 6.0"
 }
