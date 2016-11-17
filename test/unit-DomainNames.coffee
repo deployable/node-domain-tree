@@ -9,15 +9,25 @@ describe 'Unit', ->
  
     setupDomain = ->
       tree = new DomainNames()
-      tree.addDomain('test.whatever.com')
-      tree.addDomain('two.whatever.com')
-      tree.addDomain('other.com')
+      tree.addDomain('test.whatever.com', { test: true })
+      tree.addDomain('two.whatever.com', {two: true })
+      tree.addDomain('other.com', { other: true })
       tree
 
     it 'root', ->
       tree = new DomainNames()
       expect tree.root.root
       .to.equal true
+
+    it 'should fetch a domain', ->
+      tree = setupDomain()
+      node = tree.fetchDomain('two.whatever.com')
+      expect( node ).to.be.ok
+
+    it 'should fetch a domains data', ->
+      tree = setupDomain()
+      node = tree.fetchDomain('two.whatever.com')
+      expect( node.data.two ).to.equal true
 
     it 'toString', ->
       tree = setupDomain()
