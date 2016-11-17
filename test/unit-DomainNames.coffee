@@ -15,7 +15,7 @@ describe 'Unit', ->
       tree.addDomain('two.whatever.com', {two: true })
       tree.addDomain('other.com', { other: true })
 
-    it 'root', ->
+    it 'should have a root node', ->
       expect tree.root.root
       .to.equal true
 
@@ -27,11 +27,15 @@ describe 'Unit', ->
       domain = tree.fetchDomain('two.whatever.com')
       expect( domain.data.two ).to.equal true
 
-    it 'toString', ->
+    it 'should fetch sub domains', ->
+      subs = tree.getSubDomains('whatever.com')
+      expect( subs ).to.eql [ 'test', 'two' ]
+
+    it 'should convert the tree toString', ->
       expect( tree.toString() )
         .to.equal 'com\n  whatever\n    test\n    two\n  other'
 
-    it 'toJson', ->
+    it 'should convert the tree toJson', ->
       expect( tree.toJSON() )
         .to.eql
           com:
