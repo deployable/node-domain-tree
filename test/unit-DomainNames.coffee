@@ -6,6 +6,13 @@ describe 'Unit', ->
 
 
   describe 'DomainNames', ->
+ 
+    setupDomain = ->
+      tree = new DomainNames()
+      tree.addDomain('test.whatever.com')
+      tree.addDomain('two.whatever.com')
+      tree.addDomain('other.com')
+      tree
 
     it 'root', ->
       tree = new DomainNames()
@@ -13,18 +20,12 @@ describe 'Unit', ->
       .to.equal true
 
     it 'toString', ->
-      tree = new DomainNames()
-      tree.addDomain('com.whatever.test')
-      tree.addDomain('com.whatever.two')
-      tree.addDomain('com.other')
+      tree = setupDomain()
       expect( tree.toString() )
         .to.equal 'com\n  whatever\n    test\n    two\n  other'
 
     it 'toJson', ->
-      tree = new DomainNames()
-      tree.addDomain('com.whatever.test')
-      tree.addDomain('com.whatever.two')
-      tree.addDomain('com.other')
+      tree = setupDomain()
       expect( tree.toJSON() )
         .to.eql
           com:
