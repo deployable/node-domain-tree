@@ -2,7 +2,7 @@
   "name": "domain-tree",
   "version": "1.0.0",
   "description": "domain tree store",
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
