@@ -8,7 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deployable/node-domain-tree.git"
+    "url": "https://github.com/deployable/node-domain-tree.git"
+  },
+  "bugs": {
+    "url": "http://github.com/deployable/node-domain-tree/issues"
   },
   "scripts": {
     "test": "mocha",
