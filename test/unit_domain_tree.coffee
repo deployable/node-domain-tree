@@ -1,44 +1,48 @@
 
-{DomainNames,Tree} = require('../lib')
+DomainNames = require('../lib/DomainNames')
+Tree = require('../lib/Tree')
 
 
-describe 'Tree', ->
+describe 'Unit', ->
 
-  it 'toJson', ->
-    tree = new Tree()
-    tree.addNode('one')
-    tree.addNode('two')
-    expect tree.toJSON()
-      .to.eql
-        children: [
-          { id: 'one', children: [] },
-          { id: 'two', children: [] }
-        ]
+  describe 'Tree', ->
 
-describe 'DomainNames', ->
+    it 'toJson', ->
+      tree = new Tree()
+      tree.addNode('one')
+      tree.addNode('two')
+      expect tree.toJSON()
+        .to.eql
+          children: [
+            { id: 'one', children: [] },
+            { id: 'two', children: [] }
+          ]
 
-  it 'root', ->
-    tree = new DomainNames()
-    expect tree.root.root
-    .to.equal true
 
-  it 'toString', ->
-    tree = new DomainNames()
-    tree.addDomain('com.whatever.test')
-    tree.addDomain('com.whatever.two')
-    tree.addDomain('com.other')
-    expect( tree.toString() )
-      .to.equal 'com\n  whatever\n    test\n    two\n  other'
+  describe 'DomainNames', ->
 
-  it 'toJson', ->
-    tree = new DomainNames()
-    tree.addDomain('com.whatever.test')
-    tree.addDomain('com.whatever.two')
-    tree.addDomain('com.other')
-    expect( tree.toJSON() )
-      .to.eql
-        com:
-          whatever:
-            test: {}
-            two: {}
-          other: {}
+    it 'root', ->
+      tree = new DomainNames()
+      expect tree.root.root
+      .to.equal true
+
+    it 'toString', ->
+      tree = new DomainNames()
+      tree.addDomain('com.whatever.test')
+      tree.addDomain('com.whatever.two')
+      tree.addDomain('com.other')
+      expect( tree.toString() )
+        .to.equal 'com\n  whatever\n    test\n    two\n  other'
+
+    it 'toJson', ->
+      tree = new DomainNames()
+      tree.addDomain('com.whatever.test')
+      tree.addDomain('com.whatever.two')
+      tree.addDomain('com.other')
+      expect( tree.toJSON() )
+        .to.eql
+          com:
+            whatever:
+              test: {}
+              two: {}
+            other: {}
