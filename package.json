@@ -16,8 +16,10 @@
   "author": "matt hoyle",
   "license": "MIT",
   "devDependencies": {
+    "benchmark": "^2.1.2",
     "chai": "^3.5.0",
     "coffee-script": "^1.11.1",
+    "microtime": "^2.1.1",
     "mocha": "^3.1.2"
   },
   "dependencies": {
