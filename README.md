@@ -1,8 +1,18 @@
 ## domain-tree
 
-Store domains and data in a tree structure
+Store domain data in a tree structure
 
+### Install
 
-Matt Hoyle
+    npm install domain-tree
 
-code@deployable.co
+### Usage
+
+    const {DomainNames} = require('domain-tree')
+
+    let tree = new DomainsNames()
+    tree.addDomain('me.whatever.com', { dev: true })
+    tree.addDomain('them.whatever.com', { dev: false })
+    console.log( tree.toString() )
+
+Matt Hoyle - code@deployable.co
