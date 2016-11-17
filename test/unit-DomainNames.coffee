@@ -24,8 +24,8 @@ describe 'Unit', ->
       expect( node ).to.be.ok
 
     it 'should fetch a domains data', ->
-      node = tree.fetchDomain('two.whatever.com')
-      expect( node.data.two ).to.equal true
+      domain = tree.fetchDomain('two.whatever.com')
+      expect( domain.data.two ).to.equal true
 
     it 'toString', ->
       expect( tree.toString() )
