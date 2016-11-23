@@ -1,0 +1,32 @@
+#from buildkite/agent:latest
+from mhart/alpine-node:4.6.2
+
+arg build_proxy
+env DOCKER_BUILD_PROXY=$build_proxy
+      
+run set -uex ;\
+    export http_proxy=$DOCKER_BUILD_PROXY ;\
+    adduser -D -u 20040 buildkite ;\
+    apk update ;\
+    apk --no-cache add make gcc g++ wget ca-certificates bash tini git perl openssh-client ;\
+    rm /usr/bin/tini ;\
+    mkdir /buildkite ;\
+    mkdir /builds ;\
+    chown buildkite /builds ;\
+    wget -O /buildkite/install.sh https://raw.githubusercontent.com/buildkite/agent/master/install.sh ;\
+    chmod 755 /buildkite/install.sh ;\
+    DESTINATION=/buildkite /buildkite/install.sh
+
+copy buildkite-agent.cfg /buildkite/buildkite-agent.cfg
+copy entrypoint.sh /buildkite/entrypoint.sh
+
+user buildkite
+
+label co.deployable.distro="alpine" \
+      co.deployable.version="1.0" \
+      co.deployable.description="Buildkite node agent" 
+
+entrypoint ["tini", "-g", "--", "/buildkite/entrypoint.sh", "buildkite-agent"]
+
+cmd ["start"]
+
