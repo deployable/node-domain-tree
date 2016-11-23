@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -uexo pipefail
+set -ueo pipefail
 
 NAME=buildkite-node6
 SCOPE=deployable
@@ -17,16 +17,31 @@ build() {
     .
 }
 
+rebuild() {
+  build
+  restart
+}
+
+restart() {
+  stop
+  remove
+  run
+}
+
 clean(){
   docker rmi $SCOPE/$NAME
 }
 
 stop() {
-  docker stop $NAME
+  if [ "$(docker ps -q --filter "name=$NAME")" != "" ]; then
+    docker stop $NAME
+  fi
 }
 
 remove() {
-  docker rm $NAME
+  if [ "$(docker inspect $NAME 2>/dev/null)" != "[]" ]; then
+    docker rm $NAME
+  fi
 }
 
 run() {
