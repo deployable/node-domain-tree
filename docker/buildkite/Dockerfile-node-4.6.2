@@ -8,7 +8,7 @@ run set -uex ;\
     export http_proxy=$DOCKER_BUILD_PROXY ;\
     adduser -D -u 20040 buildkite ;\
     apk update ;\
-    apk --no-cache add make gcc g++ wget ca-certificates bash tini git perl openssh-client ;\
+    apk --no-cache add make gcc g++ wget ca-certificates bash tini git perl python py-pip openssh-client ;\
     rm /usr/bin/tini ;\
     mkdir /buildkite ;\
     mkdir /builds ;\
