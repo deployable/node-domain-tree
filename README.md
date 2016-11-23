@@ -2,6 +2,8 @@
 
 Store domain data in a tree structure
 
+[![Build status](https://badge.buildkite.com/1745a99401bdd68a6331273b5f95a62d8c2cdae5e6e338c3ef.svg)](https://buildkite.com/deployable/domain-tree-test)
+
 ### Install
 
     npm install domain-tree
