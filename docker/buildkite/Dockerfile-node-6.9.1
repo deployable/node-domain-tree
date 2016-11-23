@@ -4,12 +4,13 @@ from mhart/alpine-node:6.9.1
 arg build_proxy
 env DOCKER_BUILD_PROXY=$build_proxy
 env BUILDKITE_AGENT_META_DATA="node=true,node6=true,node6.9=true,node6.9.1=true"
-      
+     
+#buildkite
 run set -uex ;\
     export http_proxy=$DOCKER_BUILD_PROXY ;\
     adduser -D -u 20040 buildkite ;\
     apk update ;\
-    apk --no-cache add make gcc g++ wget ca-certificates bash tini git perl python py-pip openssh-client ;\
+    apk --no-cache add curl wget ca-certificates bash tini git perl openssh-client ;\
     rm /usr/bin/tini ;\
     mkdir /buildkite ;\
     mkdir /builds ;\
@@ -18,6 +19,11 @@ run set -uex ;\
     chmod 755 /buildkite/install.sh ;\
     DESTINATION=/buildkite /buildkite/install.sh
 
+# node builds
+run set -uex ;\
+    export http_proxy=$DOCKER_BUILD_PROXY ;\
+    apk --no-cache add make gcc g++ python py-pip
+
 copy buildkite-agent.cfg /buildkite/buildkite-agent.cfg
 copy entrypoint.sh /buildkite/entrypoint.sh
 
@@ -25,7 +31,7 @@ user buildkite
 
 label co.deployable.distro="alpine" \
       co.deployable.version="1.0" \
-      co.deployable.description="Buildkite node agent" 
+      co.deployable.description="Buildkite node agent"
 
 entrypoint ["tini", "-g", "--", "/buildkite/entrypoint.sh", "buildkite-agent"]
 
