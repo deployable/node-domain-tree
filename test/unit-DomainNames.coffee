@@ -39,7 +39,17 @@ describe 'Unit', ->
       expect( tree.toJSON() )
         .to.eql
           com:
-            whatever:
-              test: {}
-              two: {}
-            other: {}
+            domain: 'com'
+            subdomain:
+              whatever:
+                domain: 'whatever.com'
+                subdomain:
+                  test:
+                    domain: 'test.whatever.com'
+                    _data: test: true
+                  two:
+                    domain: 'two.whatever.com'
+                    _data: two: true
+              other:
+                domain: 'other.com'
+                _data: other: true
