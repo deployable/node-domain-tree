@@ -7,4 +7,5 @@ describe 'Unit', ->
   describe 'module', ->
 
     it 'version', ->
-      expect( domaintree.VERSION ).to.equal '0.1.1'
+      expect( domaintree.VERSION ).to.equal '0.2.0'
+
