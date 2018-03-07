@@ -1,5 +1,6 @@
 ARG NODE_VERSION=8.9.4
-FROM mhart/alpine-node:$NODE_VERSION
+FROM node:$NODE_VERSION-alpine
+#FROM mhart/alpine-node:$NODE_VERSION
 
 workdir /app
 
