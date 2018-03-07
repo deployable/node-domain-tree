@@ -1,4 +1,4 @@
-
+/* global expect */
 const DomainName = require('../../lib/DomainName')
 
 describe('Unit', function(){

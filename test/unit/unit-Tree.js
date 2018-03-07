@@ -1,4 +1,4 @@
-
+/* global expect */
 const Tree = require('../../lib/Tree')
 
 

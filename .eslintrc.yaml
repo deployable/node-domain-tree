@@ -3,7 +3,6 @@ parserOptions:
 env:
   node: true
   mocha: true
-  chai: true
 extends: eslint:recommended
 rules:
   quotes: [1, "single"]

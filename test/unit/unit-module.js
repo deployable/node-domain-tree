@@ -1,4 +1,4 @@
-
+/* global expect */
 const domaintree = require('../../')
 
 

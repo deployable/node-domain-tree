@@ -1,4 +1,4 @@
-
+/* global expect */
 const DomainNames = require('../../lib/DomainNames')
 
 
