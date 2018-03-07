@@ -7,7 +7,7 @@ describe('Unit::DomainNames', function(){
   let tree = null
 
   beforeEach(function(){
-    let tree = new DomainNames()
+    tree = new DomainNames()
     tree.addDomain('test.whatever.com', { test: true })
     tree.addDomain('two.whatever.com', {two: true })
     tree.addDomain('other.com', { other: true })
