@@ -3,4 +3,5 @@ npm-debug.log
 docker/buildkite/buildkite-agent-*
 yarn-error.log
 .nyc_output/
+test/output/coverage/
 coverage/
