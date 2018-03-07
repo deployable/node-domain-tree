@@ -7,5 +7,5 @@ describe 'Unit', ->
   describe 'module', ->
 
     it 'version', ->
-      expect( domaintree.VERSION ).to.equal '0.2.0'
+      expect( domaintree.VERSION ).to.match /^\d+\.\d+\.\d+/
 

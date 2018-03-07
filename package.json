@@ -14,7 +14,7 @@
     "url": "http://github.com/deployable/node-domain-tree/issues"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test/unit-* test/int-*",
     "test:unit": "mocha test/unit-*",
     "test:int": "mocha test/int-*",
     "test:benchmark": "node test/benchmark/benchmark_slice_lodash.js"
@@ -28,11 +28,11 @@
   "devDependencies": {
     "benchmark": "^2.1.2",
     "chai": "^3.5.0",
-    "coffee-script": "^1.11.1",
     "microtime": "^2.1.1",
     "mocha": "^3.1.2"
   },
   "dependencies": {
+    "coffeescript": "^2.2.2",
     "debug": "^2.0.0"
   },
   "engine": "node >= 6.0"
