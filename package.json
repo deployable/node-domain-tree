@@ -37,7 +37,8 @@
     "nyc": "^11.4.1"
   },
   "dependencies": {
-    "debug": "^3.1.0"
+    "debug": "^3.1.0",
+    "lodash": "^4.17.5"
   },
   "engine": "node >= 6.0"
 }
