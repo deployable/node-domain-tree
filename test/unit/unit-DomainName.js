@@ -6,7 +6,7 @@ describe('Unit', function(){
   describe('DomainName', function(){
 
     it('root', function(){
-      node = new DomainName('one')
+      let node = new DomainName('one')
       expect( node.id ).to.equal( 'one' )
     })
 
