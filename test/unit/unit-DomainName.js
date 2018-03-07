@@ -1,5 +1,5 @@
 
-const DomainName = require('../lib/DomainName')
+const DomainName = require('../../lib/DomainName')
 
 describe('Unit', function(){
 

@@ -1,5 +1,5 @@
 
-const Tree = require('../lib/Tree')
+const Tree = require('../../lib/Tree')
 
 
 describe('Unit', function(){

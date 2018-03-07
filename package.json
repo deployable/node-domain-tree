@@ -14,10 +14,13 @@
     "url": "http://github.com/deployable/node-domain-tree/issues"
   },
   "scripts": {
-    "test": "mocha test/unit-* test/int-*",
-    "test:unit": "mocha test/unit-*",
-    "test:int": "mocha test/int-*",
-    "test:benchmark": "node test/benchmark/benchmark_slice_lodash.js"
+    "test": "mocha test/unit test/int",
+    "test:unit": "mocha test/unit",
+    "test:int": "mocha test/int",
+    "test:benchmark": "node test/benchmark/benchmark_slice_lodash.js",
+    "test:coverage": "nyc _mocha test/unit test/int && nyc report -r html && nyc check-coverage",
+    "release:test": "set -uex; yarn run test; yarn run build; npm version prerelease; npm publish --tag testing --access public",
+    "release:patch": "set -uex; git pull; rm -rf node_modules; yarn; yarn run test:coverage; ./make.sh test:all; npm version patch; git push; npm publish --access public; git push --tags"
   },
   "keywords": [
     "domain",
@@ -28,7 +31,8 @@
   "devDependencies": {
     "benchmark": "^2.1.2",
     "chai": "^4.1.2",
-    "mocha": "^5.0.2"
+    "mocha": "^5.0.2",
+    "nyc": "^11.4.1"
   },
   "dependencies": {
     "debug": "^3.1.0"

@@ -1,5 +1,5 @@
 
-const DomainNames = require('../lib/DomainNames')
+const DomainNames = require('../../lib/DomainNames')
 
 describe('Unit::DomainNames', function(){
 

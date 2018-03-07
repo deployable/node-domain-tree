@@ -1,5 +1,5 @@
 
-const domaintree = require('../')
+const domaintree = require('../../')
 
 
 describe('Unit::module', function(){
