@@ -45,9 +45,9 @@ run_test(){
 run_test_all(){
   build_test_docker
   #docker run $IMAGE:4
-  docker run $IMAGE:6
-  docker run $IMAGE:8
-  docker run $IMAGE:9
+  docker run --rm $IMAGE:6
+  docker run --rm $IMAGE:8
+  docker run --rm $IMAGE:9
 }
 
 ###
