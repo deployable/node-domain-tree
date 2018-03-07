@@ -4,8 +4,6 @@ Store domain data in a tree structure that maintains links to parent and sub dom
 
 The intention is sub domains can query data for their parents and use it, if required. 
 
-[![Build status](https://badge.buildkite.com/1745a99401bdd68a6331273b5f95a62d8c2cdae5e6e338c3ef.svg)](https://buildkite.com/deployable/domain-tree-test)
-
 ### Install
 
     npm install domain-tree
@@ -19,7 +17,7 @@ The intention is sub domains can query data for their parents and use it, if req
     tree.addDomain('them.whatever.com', { dev: false })
     tree.addDomain('other.com', { other: true })
     console.log( tree )
-    console.log( tree.toJSON() )
+    console.log( JSON.stringify(tree, undefined, 2) )
 
 Results in a structure:
 
@@ -39,5 +37,6 @@ Results in a structure:
           domain: 'other.com'
           _data: other: true
 
+### About
 
-Matt Hoyle - code@deployable.co
+Matt Hoyle - code tata deployable.co
