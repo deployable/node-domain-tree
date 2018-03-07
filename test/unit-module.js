@@ -1,11 +1,11 @@
 
-domaintree = require('../')
+const domaintree = require('../')
 
 
-describe 'Unit', ->
+describe('Unit::module', function(){
 
-  describe 'module', ->
+  it('version', function(){
+    expect( domaintree.VERSION ).to.match( /^\d+\.\d+\.\d+/ )
+  })
 
-    it 'version', ->
-      expect( domaintree.VERSION ).to.match /^\d+\.\d+\.\d+/
-
+})

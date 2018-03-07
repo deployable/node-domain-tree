@@ -1,4 +1,3 @@
---require coffeescript/register
---require ./test/fixture/mocha-setup.coffee
+--require ./test/fixture/mocha-setup.js
 --ui bdd
 

@@ -1,18 +1,22 @@
 
-Tree = require('../lib/Tree')
+const Tree = require('../lib/Tree')
 
 
-describe 'Unit', ->
+describe('Unit', function(){
 
-  describe 'Tree', ->
+  describe('Tree', function(){
 
-    it 'toJson', ->
-      tree = new Tree()
+    it('toJson', function(){
+      let tree = new Tree()
       tree.addNode('one')
       tree.addNode('two')
-      expect tree.toJSON()
-        .to.eql
-          children: [
-            { id: 'one', children: [] },
-            { id: 'two', children: [] }
-          ]
+      expect( tree.toJSON() ).to.eql({
+        children: [
+          { id: 'one', children: [] },
+          { id: 'two', children: [] }
+        ]
+      })
+    })
+
+  })
+})

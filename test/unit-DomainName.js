@@ -1,11 +1,15 @@
 
-DomainName = require('../lib/DomainName')
+const DomainName = require('../lib/DomainName')
 
+describe('Unit', function(){
 
-describe 'Unit', ->
+  describe('DomainName', function(){
 
-  describe 'DomainName', ->
-
-    it 'root', ->
+    it('root', function(){
       node = new DomainName('one')
-      expect( node.id ).to.equal 'one'
+      expect( node.id ).to.equal( 'one' )
+    })
+
+  })
+
+})
