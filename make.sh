@@ -21,6 +21,7 @@ NAME="node-domain-tree-test"
 IMAGE="$SCOPE/$NAME"
 
 build_test_docker(){
+  set -x
   #build_test_docker_version 4
   build_test_docker_version 6 "-q"
   build_test_docker_version 8 "-q" # lts
