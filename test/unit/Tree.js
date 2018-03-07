@@ -6,7 +6,22 @@ describe('Unit', function(){
 
   describe('Tree', function(){
 
-    it('toJson', function(){
+    it('should get a node', function(){
+      let tree = new Tree()
+      let node = tree.addNode('first')
+      expect( tree.getNode('first') ).to.be.ok
+    })
+
+    it('should get a sub node', function(){
+      let tree = new Tree()
+      let nodef = tree.addNode('first')
+      let nodes = nodef.addNode('second')
+      expect( tree.getNode('first') ).to.be.ok
+      expect( nodef.getNode('second') ).to.be.ok
+      expect( tree.fetchNode('first.second') ).to.be.ok
+    })
+
+    it('should convert toJson', function(){
       let tree = new Tree()
       let one = tree.addNode('one')
       let two = tree.addNode('two')
@@ -22,4 +37,5 @@ describe('Unit', function(){
     })
 
   })
+
 })
