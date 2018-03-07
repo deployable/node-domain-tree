@@ -1,6 +1,6 @@
 {
   "name": "domain-tree",
-  "version": "0.3.0",
+  "version": "0.3.1-0",
   "description": "domain tree store",
   "main": "lib/index.js",
   "directories": {
